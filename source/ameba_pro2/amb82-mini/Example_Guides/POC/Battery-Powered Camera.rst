@@ -1,4 +1,4 @@
-Battery-PoweredCamera
+Battery-Powered Camera
 ======================
 
 .. contents::
@@ -9,7 +9,7 @@ Materials
 ---------
 - `AMB82-mini <https://www.amebaiot.com/en/where-to-buy-link/#buy_amb82_mini>`_ x 2
 - Camera Module (eg. Jx-F37) x 2
-- Female-to-Female Jumper Wires x 3
+- Female-to-Female Jumper Wires x 4
 
 Introduction
 ------------
@@ -20,7 +20,7 @@ standby mode.
 
 How it Works
 ------------
-The Battery-PoweredCamera example uses two AMB82-Mini to realise this example for testing. One of the AMB82-Mini will be used as a replacement for the motion detection sensor by running motion detection through its
+The Battery-Powered Camera example uses two AMB82-Mini to realise this example for testing. One of the AMB82-Mini will be used as a replacement for the motion detection sensor by running motion detection through its
 camera. This motion detection sensor AMB82-Mini will always be on for the purpose of this example only. The second AMB82-Mini is meant to be the main microcontroller with power-saving features and it is set to only begin
 recording a video upon being woken up by the first AMB82-Mini. After a few seconds of inactivity, the second AMB82-Mini will enter standby mode. During application, the devices will communicate via UART and the first AMB82-Mini uses
 a GPIO pin to wake up the second AMB82-Mini.
@@ -28,15 +28,17 @@ a GPIO pin to wake up the second AMB82-Mini.
 Getting Started (MCU_A)
 -----------------------
 
-- Find the POC example under "Files" -> "Examples" -> "POC" -> "Battery-PoweredCamera -> MCU_A" from the top left corner of the ArduinoIDE. This is the code for the AMB82-Mini running motion detection.
+- Find the POC example under "Files" -> "Examples" -> "POC" -> "Battery-Powered Camera -> MCU_A" from the top left corner of the ArduinoIDE. This is the code for the AMB82-Mini running motion detection.
 
 |image01|
 
-- Connect the two jumper wires from MCU_A's pin 18 to MCU_B's pin 19 and MCU_A's pin 19 to MCU_B's pin 18 for UART communication. Then one jumper wire to connect MCU_A's pin 0 to MCU_B's pin 0, this is for GPIO wake up on MCU_B.
+- Connect the two jumper wires from MCU_A's pin 18 to MCU_B's pin 19 and MCU_A's pin 19 to MCU_B's pin 18 for UART communication. Then one jumper wire to connect MCU_A's pin 0 to MCU_B's pin 0, this is for GPIO wake up on MCU_B. The last jumper wire needs to connect any of the GND pins on both boards together.
 
 |image02|
 
 |image03|
+
+|image10|
 
 - The AMB82-Mini will read from its UART periodically to receive updates on whether MCU_B is currently recording or in standby mode. 'R' = Recording and 'S' = Standby Mode.
 
@@ -51,15 +53,17 @@ Getting Started (MCU_A)
 Getting Started (MCU_B)
 -----------------------
 
-- Find the POC example under "Files" -> "Examples" -> "POC" -> "Battery-PoweredCamera -> MCU_B" from the top left corner of the ArduinoIDE. This is the code for the main AMB82-Mini used for video recording and power-save.
+- Find the POC example under "Files" -> "Examples" -> "POC" -> "Battery-Powered Camera -> MCU_B" from the top left corner of the ArduinoIDE. This is the code for the main AMB82-Mini used for video recording and power-save.
 
 |image06|
 
-- Connect the two jumper wires from MCU_B's pin 18 to MCU_A's pin 19 and MCU_B's pin 19 to MCU_A's pin 18 for UART communication. Then one jumper wire to connect MCU_B's pin 0 to MCU_A's pin 0, this is for GPIO wake up on MCU_B.
+- Connect the two jumper wires from MCU_B's pin 18 to MCU_A's pin 19 and MCU_B's pin 19 to MCU_A's pin 18 for UART communication. Then one jumper wire to connect MCU_B's pin 0 to MCU_A's pin 0, this is for GPIO wake up on MCU_B. The last jumper wire needs to connect any of the GND pins on both boards together.
 
 |image02|
 
 |image03|
+
+|image10|
 
 - The AMB82-Mini will read from its UART periodically to receive updates on whether MCU_A has detected any activity. 'D' = Detected and 'N' = Nothing.
 
@@ -78,16 +82,19 @@ Getting Started (MCU_B)
 - Compile and upload the code into AMB82-Mini and reset the board to start running the POC example. Both MCU_A and MCU_B should be running at this stage for the POC example to run properly.
 
 
-.. |image01| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image01.jpg
-.. |image02| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image02.jpg
+.. |image01| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image01.jpg
+.. |image02| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image02.jpg
    :height:  600 px
    :width:  500px
-.. |image03| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image03.jpg
+.. |image03| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image03.jpg
    :height:  600 px
    :width:  500px
-.. |image04| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image04.jpg
-.. |image05| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image05.jpg
-.. |image06| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image06.jpg
-.. |image07| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image07.jpg
-.. |image08| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image08.jpg
-.. |image09| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-PoweredCamera/image09.jpg
+.. |image04| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image04.jpg
+.. |image05| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image05.jpg
+.. |image06| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image06.jpg
+.. |image07| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image07.jpg
+.. |image08| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image08.jpg
+.. |image09| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image09.jpg
+.. |image10| image::  ../../../../_static/amebapro2/Example_Guides/POC/Battery-Powered Camera/image10.jpg
+   :height:  600 px
+   :width:  500px
