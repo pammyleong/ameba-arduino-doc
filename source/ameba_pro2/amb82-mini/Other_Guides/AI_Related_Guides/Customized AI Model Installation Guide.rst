@@ -14,6 +14,10 @@ Face Recognition, "mobilefacenet_int16.nb".
 
 Audio related, "yamnet_fp16.nb" or "yamnet_s_hybrid.nb".
 
+Image Classification related, "img_class_cnn.nb" or "mobilenetv2_int16.nb"
+
+Hand Gesture related, "hand_landmark_lite_int16.nb", "palm_detection_lite_int16.nb"
+
 Copy/Replace ".nb" file into the project folder
 -----------------------------------------------
 
@@ -72,25 +76,33 @@ In the SD card, create a folder name "NN_MDL" and save your models in the folder
 
 **Face Detection:**
 
-- scrfd.nb
+- scrfd_500m_bnkps_640x640_u8.nb
 
 **Face Recognition:**
 
-- mobilefacenet.nb
+- mobilefacenet_int16.nb
 
 **Audio Classification:**
 
-- yamnet.nb
+- yamnet_fp16.nb
 
 **Image Classification:**
 
-- imgclassification.nb
+- img_class_cnn.nb or mobilenetv2_int16.nb
+
+**Hand Gesture**
+
+- hand_landmark_lite_int16.nb
+
+- palm_detection_lite_int16.nb
 
 |image04|
 
 You can change to your preferred .nb file names in SD_Model.cpp by navigating to \\Arduino15\\packages\\realtek\\hardware\\AmebaPro2\\\ **SDK Version**\\libraries\\NeuralNetwork\\src to match the name on your SD card if you would like to use a different name for the .nb file that is saved there.
 
 |image05|
+
+|image06|
 
 .. |image01| image:: ../../../../_static/amebapro2/Other_Guides/AI_Related_Guides/Customized_AI_Model_Installation_Guide/image01.png
    :width:  719 px
@@ -103,8 +115,12 @@ You can change to your preferred .nb file names in SD_Model.cpp by navigating to
    :width:  858 px
    :height:  545 px
 .. |image04| image:: ../../../../_static/amebapro2/Other_Guides/AI_Related_Guides/Customized_AI_Model_Installation_Guide/image04.png
-   :width:  858 px
-   :height:  943 px
+   :width:  920 px
+   :height:  543 px
 .. |image05| image:: ../../../../_static/amebapro2/Other_Guides/AI_Related_Guides/Customized_AI_Model_Installation_Guide/image05.png
-   :width:  478 px
-   :height:  583 px
+   :width:  633 px
+   :height:  830 px
+.. |image06| image:: ../../../../_static/amebapro2/Other_Guides/AI_Related_Guides/Customized_AI_Model_Installation_Guide/image06.png
+   :width:  600 px
+   :height:  545 px
+
